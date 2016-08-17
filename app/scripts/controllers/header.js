@@ -14,9 +14,4 @@ angular.module('angularDrlubeApp')
       return viewLocation === $location.path();
     };
 
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
   });
