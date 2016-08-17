@@ -16,7 +16,8 @@ module.exports = function (grunt) {
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn'
+    cdnify: 'grunt-google-cdn',
+    buildcontrol: 'grunt-build-control'
   });
 
   // Configurable paths for the application
@@ -24,6 +25,9 @@ module.exports = function (grunt) {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist'
   };
+
+  // Project configuration.
+  var pkg = require('./package.json');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -459,14 +463,14 @@ module.exports = function (grunt) {
       },
       web: {
         options: {
-          remote: '',
+          remote: 'git@github.com:kamkejj/drlube-angular.git',
           branch: 'master',
           tag: pkg.version
         }
       },
       local: {
         options: {
-          remote: '../',
+          remote: 'git@github.com:kamkejj/drlube-angular.git',
           branch: 'build'
         }
       }
