@@ -8,7 +8,11 @@
  * Controller of the angularDrlubeApp
  */
 angular.module('angularDrlubeApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('HeaderCtrl', function ($scope, $location, $http) {
+
+    $scope.isActive = function (viewLocation) {
+      return viewLocation === $location.path();
+    };
 
     this.awesomeThings = [
       'HTML5 Boilerplate',

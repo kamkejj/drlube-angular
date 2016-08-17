@@ -17,7 +17,13 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
+
+    /*$scope.getClass = function (path) {
+      return ($location.path().substr(0, path.length) === path) ? 'active' : '';
+    };*/
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
