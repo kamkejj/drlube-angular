@@ -39,9 +39,7 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li ng-class="{ active: isActive('/home')}"><a ng-href="/home/{{homeUUID}}">Home</a></li>
-              <li ng-class="{ active: isActive('/services')}"><a ng-href="/services/{{servicesUUID}}">Services</a></li>
-              <li ng-class="{ active: isActive('/contact')}"><a ng-href="/contact/{{contactUUID}}">Contact</a></li>
+              <li ng-repeat="menu in mainMenu" ng-class="{ active: isActive('{{ menu.path }}')}"><a ng-href="{{ menu.path }}/{{ menu.uuid }}">{{ menu.menu_name }}</a></li>
             </ul>
           </div>
         </div>
@@ -66,7 +64,7 @@
        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
        }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
+       ga('create', 'UA-39317211-2');
        ga('send', 'pageview');
     </script>
 

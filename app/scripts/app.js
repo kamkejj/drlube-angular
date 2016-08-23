@@ -32,14 +32,14 @@ angular
         controllerAs: 'main'
       })
       .when('/services/:uuid', {
-        templateUrl: 'views/services.html',
+        templateUrl: 'views/main.html',
         controller: 'NodeCtrl',
-        controllerAs: 'services'
+        controllerAs: 'main'
       })
       .when('/contact/:uuid', {
-        templateUrl: 'views/contact.html',
+        templateUrl: 'views/main.html',
         controller: 'NodeCtrl',
-        controllerAs: 'contact'
+        controllerAs: 'main'
       })
       .otherwise({
         redirectTo: '/'
