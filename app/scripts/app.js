@@ -20,20 +20,26 @@ angular
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
-    /*$scope.getClass = function (path) {
-      return ($location.path().substr(0, path.length) === path) ? 'active' : '';
-    };*/
-
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
+        controller: 'NodeCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/home/:uuid', {
+        templateUrl: 'views/main.html',
+        controller: 'NodeCtrl',
+        controllerAs: 'main'
+      })
+      .when('/services/:uuid', {
+        templateUrl: 'views/services.html',
+        controller: 'NodeCtrl',
+        controllerAs: 'services'
+      })
+      .when('/contact/:uuid', {
+        templateUrl: 'views/contact.html',
+        controller: 'NodeCtrl',
+        controllerAs: 'contact'
       })
       .otherwise({
         redirectTo: '/'

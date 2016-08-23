@@ -33,15 +33,15 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="/">angularDrlube</a>
+            <a class="navbar-brand" href="/">Dr. Lube</a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li ng-class="{ active: isActive('/')}"><a ng-href="/">Home</a></li>
-              <li ng-class="{ active: isActive('/about')}"><a ng-href="/about">About</a></li>
-              <li><a ng-href="/">Contact</a></li>
+              <li ng-class="{ active: isActive('/home')}"><a ng-href="/home/{{homeUUID}}">Home</a></li>
+              <li ng-class="{ active: isActive('/services')}"><a ng-href="/services/{{servicesUUID}}">Services</a></li>
+              <li ng-class="{ active: isActive('/contact')}"><a ng-href="/contact/{{contactUUID}}">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -54,7 +54,7 @@
 
     <div class="footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p>Dr. Lube, LLC &copy; 2016</p>
       </div>
     </div>
 
@@ -87,8 +87,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/header.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/node.js"></script>
         <!-- endbuild -->
 </body>
 </html>
