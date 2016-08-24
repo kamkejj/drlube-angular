@@ -44,4 +44,15 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .service("drlubeService", function ($http) {
+
+    this.getConf = function ()
+    {
+      return $http.get('config.json').then(function(result)
+      {
+        return result.data;
+      });
+    }
+
   });

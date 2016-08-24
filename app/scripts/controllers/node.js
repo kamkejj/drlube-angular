@@ -8,22 +8,22 @@
  * Controller of the angularDrlubeApp
  */
 angular.module('angularDrlubeApp')
-  .controller('NodeCtrl', function ($routeParams, $scope, $http) {
+  .controller('NodeCtrl', function ($routeParams, $scope, $http, drlubeService) {
     $scope.node = {};
-
-    console.log($routeParams.uuid, 'rp');
-
     var path = '';
-    if ($routeParams.uuid !== undefined) {
-      path = 'http://api.drlube.dev/v1/page/' + $routeParams.uuid;
-    } else {
-      path = 'http://api.drlube.dev/v1/page/' + $scope.homeUUID;
-    }
 
+    var conf = drlubeService.getConf();
+    conf.then(function(data) {
+      var basePath = data;
 
-    $http.get(path).then(function(result) {
-      if (result.status === 200) {
-        $scope.node = result.data[0];
-      }
+      //basePath[0].baseURL
+      path = basePath[0].baseURL + 'v1/page/' + $routeParams.uuid;
+
+      $http.get(path).then(function(result) {
+        if (result.status === 200) {
+          $scope.node = result.data[0];
+        }
+      });
     });
+
   });
