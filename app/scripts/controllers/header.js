@@ -8,15 +8,22 @@
  * Controller of the angularDrlubeApp
  */
 angular.module('angularDrlubeApp')
-  .controller('HeaderCtrl', function ($scope, $location, $http) {
+  .controller('HeaderCtrl', function ($scope, $location, $http, drlubeService) {
     $scope.mainMenu = [];
+    var path = '';
 
-    var path = 'http://api.drlube.dev/v1/menu';
+    var conf = drlubeService.getConf();
+    conf.then(function(data) {
+      var basePath = data;
 
-    $http.get(path).then(function(result) {
-      if (result.status === 200) {
-        $scope.mainMenu = result.data;
-      }
+      path = basePath[0].baseURL + 'v1/menu';
+
+      $http.get(path).then(function (result) {
+        if (result.status === 200) {
+          $scope.mainMenu = result.data;
+        }
+      });
+
     });
 
     $scope.isActive = function (viewLocation) {
