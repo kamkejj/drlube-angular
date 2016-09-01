@@ -18,7 +18,7 @@ angular.module('angularDrlubeApp')
 
       path = basePath[0].baseURL + 'v1/menu';
 
-      $http.get(path, {cache: true, size: 10}).then(function (result) {
+      $http.get(path).then(function (result) {
         if (result.status === 200) {
           //var httpCache = $cacheFactory.get('$http');
           $scope.mainMenu = result.data;
